@@ -1,0 +1,5 @@
+# git rm --cached file (para eliminarlo de GitHub)
+# Luego hacer push origin, normal
+
+Chapter1.pdf
+Chapter3.pdf
