@@ -3,6 +3,5 @@
 Curso de Introducción a la Inteligencia Artificial de Samsung Innovation Campus
 
 Tareas pendientes:
- - Introducción
- - Unit 2
+ - Unit 2, from pág. 283
  - Unit 3
