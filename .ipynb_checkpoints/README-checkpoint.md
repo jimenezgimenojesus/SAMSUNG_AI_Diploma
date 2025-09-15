@@ -4,4 +4,4 @@
 
 Tareas pendientes:
  - Function grouping (optional): i'll think about it.
- - Unit 4: more practice, especially with pandas and seaborn plot visualization.
+ - Unit 4: more practice adn especilly, SEABRON review.
