@@ -4,3 +4,4 @@
 
 Tareas pendientes:
  - Unit 4: general practice
+ - Chapter 2, unit1: complete theory
