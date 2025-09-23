@@ -1,0 +1,72 @@
+Dim = 2
+
+Cada movimiento de matrices tiene un movimiento en ele plano asiciado y vicecversa.
+Cuando haceos f(vector) = A*vector. Esto es, cualquier función / onivimeinto que hagamos tien euna matriz asociada.
+Por ejemplo:(3 0) * A = (0 3)
+
+Simetría:    (0 1)
+             (1 0)
+Giro de 90º: (0 -1)
+             (1  0)
+Matriz invriante: M * v = lambda * v (domde v es el 'vector propio', lambda es el valor propio) (autovalor o autovector)
+vector proio = son los 'direcciones invariantes'
+lambda contenido en R es 'el multiplo' positov o negativo 
+
+
+FACTORIZACIÓN:
+Si M que es parte E de una M (NxN) de Reales.  tiene n vecotres propios linealmente indeoendientes, se cumple que M = P^-1 * D * P, donde D = matriz diagonal , 
+LOs vectore spropios independientes se pueden obtener como resultado de A-lambda * I = 0 (de sus ecuaciones derivadas).
+Los vectores linealmente independientes s eponen en vertical en P y corresponden con cada lugar de D = v11 está en (1, 1) y corresponde con la columna 1 de P.
+
+M^2000 = costoso.   P^-1 * D * P = D ---> M = P * D * P^-1, con lo que ----> M^2000 = P * D^2000 * P^-1, puesto que poneniendo: P * D * P^-1 * P * D * P * P^-1...., donde P*P^-1 = I
+
+- El procductorio de otdos lo valores de lambda da el determiannte de M.
+- El sumatorio de todos los valores de lambda (suma de los autovalores) corresponde con el sumatorio de los valores de la diagonal de la M inicial. 
+- Si M es simétrica (), todos valores propios (lambda), son números Reales.
+
+Con una matrix M mxn, se puede trabajr con M_Especial = M^t(mxn) * M(nxm), para obtener una matriz cuadrada.
+M(mxm) = (mxn)x(nxm)  -> lambda de 1 a m
+M(nxn) = (nxm)x(mxn)  -> mu de 1 a n
+Una de las matrices tendrá más 0s que la otra.
+
+- En A^t * A === A * A^t tienen  los mimso valores propios en uno qu en otro.
+- Todos los valores propios no nulos son positivos (puesto que se han multiplciado esos valores y por tanto NO PUEDNE SER NEGATIVOS) y se pueden ordenadr de menor a mayor
+Valores singulrares de A = son las raíces cuadradas de todas las lambda (y ESOS son los valores, ya que el restultado de la OPERACION DE A(mxn) * A(nxm) *duplcia* valores. 
+
+Las matrices U y V son (nxn, A * A^t) y (mxm, A*t * A) y multiplican a *E* (sigma), por la dcha e izqda: U * *E* * V. Sigma será una matriz diagonal, la U será una matriz horizontal y V será una matriz vertical, de tal manera que obtendremos un SUMATORIO DEL PRODUCTO DE TODOS LOS VALORES DE sigma * u * v, para tods los valores 'i' por los que se extienda. U y V son ORTOGONALES, puesot que u^-1 = u^t.
+El sumatorio de i a r es sigma_i * u_i * v_i, de todos los valores de i hasta r, proque despueés de R peude haber valroes nulos y por tanto, al haber 0s, nos da igual.
+La mayor ignofmacion de A está en los valroes inciales y va tenidenco a 0.
+S epeude hacer aproxmacioens de lso valoresd el suamorio, para A, por ejemplo los primos i valores, en lugar de TODOS ellos.
+
+
+
+DESCENSO POR GRADIENTE utiliza el ERROR CUADRÁTICO
+
+LA y con gorrito es la aproximacion.
+LO que SE BUSCA: minimizar la distancia del punto a la linea de gradiente (sqrt(distancia de l punto a la y al cuadrado))
+MINIMIZAR LA DISTANCIA ENTRE EL PHUNTO ORIGINAL Y EL APROXIMADO
+
+SE suman todas las diferencias de los puntos (el real y el aprox), elevadas al cuadrado., Esto es:  SE PUEDE APLCIAR SIEMPRE. Con ajuste lineal y no lineal
+
+DERIVADAS: al dereivar respeto a una variable, el resto de variables se toman como constantes (y si están solas, es normal que s evayan)
+Si vamos a derivar f(x, y), respecto de x y luego de y, acada una de las derivadas que s ehagan prmeor son las DERIVADAS PARCIALES
+
+VECTOR GRADIENTE: es el resultado de 'colocar' cada una de las respectivas derivadas parciales en un vector VERTICAL, tal que la primera derivada parcial estará arriba del todo y la ultima derivada aprcial abajo
+
+HACIA DÖNDE DIRIGIR CADA UNA DE LAS ITERACIONES: es una funcion que nos dice, si miras en este punto, HAS DE DIRIGIRTE TANTOS MOVIEMIENTOS HACIA TAL DIRECCION (mas o menos)
+- VECTOR GRADIENTE = direcciñon de máxio decrecimiento de f
+VECTOR GRADIENTE = dirección de máximo crecimienot de f
+
+
+METODO DEL GRADIENTE DESCENDIENTE: coger las medida siniciales que tenemos y restarle ALPHA por el vector gradiente ENTRE el normalizado del gradiente. Con lo que estaríamos restando el gradiente a un tamaño ALPHA que decidimos nosotros.
+Si el valor dado es menor, hay que dirigirse, hacia 'MENOS'. UTILIZA EL ERROR CUADRÁTICO
+PARTIMOS DE UN PUNTO SEMILLA
+
+
+
+
+
+
+
+
+
