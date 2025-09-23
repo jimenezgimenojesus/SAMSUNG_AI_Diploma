@@ -64,6 +64,53 @@ PARTIMOS DE UN PUNTO SEMILLA
 
 
 
+SAMUEL
+MODELOS INTERPETABLES: no son black boxes
+- SOBREENTRENADO, si o o y a que porcentaje
+- COMPARAR
+
+Modelos lineales:
+
+ con sumas y prodcutos de constatnes y variabels (y = ax + b es la más concida, fácil)
+Se puede cambiar la x por sqrt de x, x cuadrado, lo que sea RELACIONADO CON LA X.
+EJEMPLO: pOWER LAW Fehner, percepción es exponencial, (paso de la electricidad en el cerpo)
+
+ESRTUDIAR , RESPECTO A LA GRÁFICA DE DATOS QUE S ENOS MUESTRA, CUÁL ES LA ECUACIÑÓN QUE MEJOR SE PLAICARIA, EJEMPLO, SI LOS PUNTOS SUGIEREN UNA LOGARITMICA, QUIZÁ ES MEJOR APLICAR UNA TRANSFORMACIÓN ANTES DE HACER EN EL MODELO. (perfcepcion del brillo es logaritmico, por ejemplo (70% se "ve" casi igualeq ue 100%))
+
+DECIDIR COMO DIVIDR EL DATASET
+Decidir, cuántos y cuáles (cuanto más complejo, más datos, 80 o más%, CON ESTE EJEMPLO, 50% ES BIEN // ALEATORIOOOO, intentar librar sesgos, HACER VARIAS VECES (varios modelos para asegurar que es consistente)) EN ESPACIO MULTIDIMENSIONAL ES MÁS COMPLICADO Y ÒR TANTO SE HACE PARTIICÓN ALEATORIA. 
+
+- DECIDIR LA ECUACION Y CREAR, TANTAS ECUACIONES COMO DATOS TENGO (SISTEMA SOBREDETERMINADO)
+- CONVERSIÓN  A MATRICIAL (COMO EN EL DIBUJO)
+- y_E: datos de entrenamiento
+- y_T: datos de test
+
+Buscaremos el Min(Ax -b), donde Ax es mi modelo y b lo que debe predecir. (MINIMOS CUADRADOS, busca minimizar las distancias entre los dso vectores Ax y b).
+x = (A^T * A)^-1 * A^t * b, tiene solución cuando se utiliza la norma ecuclidea.
+LINEAL = Y = A*X + B  ----> x = (A^T * A)^-1 * A^t * b
+CUADRÁTICA = Y = A*X^2 +B  ----> x = (A^2^T * A^2)^-1 * A^2^t * b
+
+PARA PASAR A FORMA MATRICIAL: tenemos el vector en vertical [[a], [b], [c]] @ [[0.015^2, 0.015, 1],       = [50.5, 50.2, ]
+                                                                               [0.015^2, 0.015, 1], ....] 
+
+
+Error entrenamiento = sum((y - y_e)^2 de la primera componente, segunda, terfcera... ) == (y - y_e)(y - y_e)^t (por la trapsuesta)
+Error validación = y - y_t
+
+PARA HACER INTERPRETABLE EL ERROR CUADRÁTICO, SE DIVIDE ENTRE EL NÚMERO DE DATOS (Mean Squared Error, MSE)
+SE OBTIENNE TODOS LOS ERRORES CUADRÁTICOS DE CADA MODELO
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
