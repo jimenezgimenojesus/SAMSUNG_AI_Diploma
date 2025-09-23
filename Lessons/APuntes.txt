@@ -100,11 +100,17 @@ Error validación = y - y_t
 PARA HACER INTERPRETABLE EL ERROR CUADRÁTICO, SE DIVIDE ENTRE EL NÚMERO DE DATOS (Mean Squared Error, MSE)
 SE OBTIENNE TODOS LOS ERRORES CUADRÁTICOS DE CADA MODELO
 
+PARA DECIDIR SI HAY SOBREENTRENAMIENTO: comparar el error de entrenamiento con el error de validación. PAsa que el error para el conjunto de entrenamiento es más pequeño para el error de validación (una pequeña diferencia está bien (al finalsobre los datos entrenados hay mejor conocimiento), peor no puede se rmuy grande). 
+COMPARAR: restar (diff absoluta), dividir (diff relativa)
+
+Dividir: cercano a 1, son parecidos. muy cercano a 1,// no es problema, pero es raro //, cercano a 0: SOBREENTRENAMIETNO, por
+
+Si se divide el error de entrenamiento entre el error cuadrado (ambos elevados al cuadrado, por tanto CHI-CUADRADO), es una distirbución de Fischer, SE PUEDE CALCUALAR EN QUE PERCENTIL DE LA DSITRIBUCIÓN ESTÁ!!! SI 55, OK EN EL CENTRO, SI 5 O 95, ESTÁ EN UNE EXTREMO.
 
 
 
 
-
+FALTA EL ANÁLISIS FINAL
 
 
 
