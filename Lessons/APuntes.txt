@@ -63,7 +63,8 @@ Si el valor dado es menor, hay que dirigirse, hacia 'MENOS'. UTILIZA EL ERROR CU
 PARTIMOS DE UN PUNTO SEMILLA
 
 
-
+----------------------------------------
+23/09/2025
 SAMUEL
 MODELOS INTERPETABLES: no son black boxes
 - SOBREENTRENADO, si o o y a que porcentaje
@@ -112,11 +113,16 @@ Si se divide el error de entrenamiento entre el error cuadrado (ambos elevados a
 
 FALTA EL ANÁLISIS FINAL
 
+SOBREENTRANDO: CUANDO LA RELACIÓN DE PARÁMETROS RESPECTO A DATOS ES DEMASIADO ALTA (demasiados x^2, etc... para tan pocos datos)
+-----------------------------------------------------
+¿CUÁNDO UNA VARIABLE ES IMPORTANTE?  -> MODELO CON Y SIN VARIABLE, si al 95% de confianza son ..., la variable es importante, si sale un PERCENTIL MEDIO, es que da igaul
+INTUIR VARIABLES:
+- COmbiacion lineal de las variables (sumar y multiplicar las variables por componentes O ENTRE ELLAS..) t = ax + by +cz +wd). Podemos aplicar TRANSOFMRACIONES LINEALES a variables que consideremos y seguirá siendo combinación lineal. Multiplicar xy es un factor no lineal pero en el modelo es lineal todavía.
+- en c = a*p +b*h +c: para saber que variable es mas improtante hay que NORMALIZAR. (dos técnicsas)(1, restar dividri máximo tiene valores de 0 a 1, PERO muy sensible a errores, pues todo se centra en max o minimo, SI ES OUTLIER O ESTÁ MEDIDO MAL, PROBLEM) (2, rstar y divividr en std, valores CENTRADOS, más robusto,, "z-score normalization", entre -1, 1 el 60, ... bastabte centrado, AUNQUE NO HAY LIMITES DE VALORES, pensda para TRANSOFMRAR UNA MEDIA DE NORMAL A .. ---> SI LOS DATOS NO TIENEN DISTRIBUCIÓN NORMAL...)
 
+SISTEMA DE ECUACIONES SOBREDETERMINADO CON FORMA MATRICIAL (Ax = b) ---- > [val1, val2] [a b c] = [temp] (EN COLUMNAS)
 
-
-
-
+- Como la presión es muy baja: O LA RELACION ENTRE PRESION Y HUMEDAD NO ES LINEAL o LA RPESION NO ES IMPORTANTE
 
 
 

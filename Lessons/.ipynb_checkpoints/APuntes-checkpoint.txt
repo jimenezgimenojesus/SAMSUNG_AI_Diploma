@@ -112,7 +112,7 @@ Si se divide el error de entrenamiento entre el error cuadrado (ambos elevados a
 
 FALTA EL ANÁLISIS FINAL
 
-
+SOBREENTRANDO: CUANDO LA RELACIÓN DE PARÁMETROS RESPECTO A DATOS ES DEMASIADO ALTA (demasiados x^2, etc... para tan pocos datos)
 
 
 
