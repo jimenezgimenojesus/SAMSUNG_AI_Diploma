@@ -123,6 +123,11 @@ INTUIR VARIABLES:
 SISTEMA DE ECUACIONES SOBREDETERMINADO CON FORMA MATRICIAL (Ax = b) ---- > [val1, val2] [a b c] = [temp] (EN COLUMNAS)
 
 - Como la presión es muy baja: O LA RELACION ENTRE PRESION Y HUMEDAD NO ES LINEAL o LA RPESION NO ES IMPORTANTE
+# Si sale cerca del 50%, son similares
+# Si sale muy alto o muy bajo, HAY diferenciar significativas entre los modelos (2.5-97.5)
+
+MODELOS DINÁMICOS:
+Utilizar datos del pasado para predecri los del futuro
 
 
 
