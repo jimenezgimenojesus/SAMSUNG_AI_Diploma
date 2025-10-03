@@ -131,6 +131,141 @@ Utilizar datos del pasado para predecri los del futuro
 
 
 
+---------------------------------------------------------------------
+29/09/2025 Maria
+--------------------------------------------------
+definición de probabilidad = casos favorables / casos posibles (toda P entre 0 y 1)
+
+discreta = finito, personas hay 1,2,3, no 1.2
+		 suma de valores da 1
+continua = hay infintos resultados entre uno y otro
+                  se hace la integral (sumatorio de inifnitos valores)
+
+
+population = no conozco todos los elementos, por tanto es un PARAMETRO aproximado
+sample = conozco seguro, por tanto son ESTADÍSTICAS
+
+
+LA medai devuelve el valor, pero no tiene que ser uno de los casos reales (por las dsicretas, por ejemplo, ejemplo de los dados que se tiran cuya media es 3.5 aunque el dado no tenga una cara de 3.5).
+
+
+Comparativa de los años: la varianza es la misma aunque crezcamos pasado un año, pero la medai habrá crecido la parte porporcioanr del tiempo que haya transcuirrdo.
+
+Benrouilli: probabilida de que sea o A o no A y punto.
+          -  la suma de Bernoulli conduce a distirbucion binomial
+          -  se mantiene constate la probabilidad del suceso
+X - Bin(n, p): dsitribucion binomial uq edepemde de n y de p
+
+---------
+App = Probability Distributions, allows to select fro probability distributions.
+-------
 
 
 
+---------------------------------------------------------------------
+01/10/2025: Conjoint Probability
+---------------------------------------------------------------------
+
+
+Varianza x: S_x^2 = sum(x_i - x.mean)/(n - 1)
+Varianza y: S_y^2 = sum(...)/(n - 1)          -------> n son los pares de datos
+Covarinza es el grado de dispersión entre ambasa variables (igual que la Varianza de una pero con dos)
+
+Cob(x, y) = E((x_i - mu_x)(y_i - mu_y))
+           E = expected value
+
+
+Misma variablidadad cambia con unidades diferentes. Peso yh altura, en kg, g, m, cm... --> Problema de dependencia de unidades de trabajo (muy relacioenadas). Para ver la relacion hay que gacer el correlaction coefficient. --> normalizar valroes . Da relacion LINEAL entre variables (no relaicón lineal NO SIGNIFICA NO RELACIÓN). --> Variables relacioneadas por ejemplo cuadráticamente recibiran un coeficiente 0 porque no estará relacionado, A PESAR DE TENER UNA RELACIÓN CUADRÁTICA.
+
+Ejercicio:
+P(X = -1, Y = 1) = 1/3, P(X = 0, Y = 0) = 1/3, P(X = 1, Y = 1) = 3
+
+# LA X es discreta, porque toma valores conocides, por lo que E = sum(valor * Pobabilidad_i) 
+# RECUERDA: CASOS FAVORABLES / CASOS POSIBLES
+
+Cov(X, Y) = E[X Y] - E[X]*E[Y] = 0                           		#
+E[X] = -1*P(X=-1) + 0*P(X=0) + 1*P(X=1) = -1/3 + 0 + 1/3 = 0   		# Expected value de X
+E[Y] = 0*P(Y = 0) + 1*P(Y = 1) = 0 + 1*(1/3 + 1/3) = 2/3                # Expected value de Y  
+E[X Y] = E[X * X^2] = E[X^3] = (-1)^3*P(X = -1) + ... resto * prob = 0  # Expected value of XY                       
+
+Como la Cov(X, Y) = 0 --> Cor(X, Y) = 0
+
+PAra ver si son indeoendeintes: Probabilidad conjunta == Producto de Probabilidades ---> Ha de cumplirse para todos los casos!!
+
+P(X=-1, Y=1) == P(X=-1)*P(Y=1) -> 1/3 =/= 1/3*2/3
+
+
+
+
+----------
+Sample: muestra pequeña de la población ---> para inferir datos de la población 
+Descriptiva: de la muestra, Inferenical, de la población.
+
+Mu es la medai de la poblaciñon y x^_ es la medai de una muestra
+sigma^2 es varianza población, S^2 de muestra
+sd es s en muestra y sigma en población
+
+Mediana: deja la mitad de los datos por arriba y por debajo
+Skewness: …
+Fructosis: mide si los datos son más 'chatos' o 'picudos' que la normal.
+
+Quartiles: divide los datos en 4 partes iguales (SON LA DIVISIÓN: 25, 50, 75, SÓLO 3 'CORTES')
+Quantiles: n-cortes, percentil --> 99 cortes (sobre 100, %).
+
+IQR: Q3 -Q1
+length bigote = Q_i - 1.5xIQR (si esto es > que el ultimo valor, llega sólo hasta ekl ultimo valor).
+
+
+
+
+1.96 ---> intervlo de confianza del 95%, cambiarlo cambia el intervalod e confianza, que tñu decides cuándo ueires más o menos confianza (más confianza == menos "errores" pero menos orecision.)
+Cuanto más grande el tmañaod e muestra, más se acerca al intervalo.
+
+---------------------------------------
+EJERCICIO INTERVALO 1
+
+n     = 15 ejecuciones
+x^_   = 47.07 ms
+s^2   = 2.97 ms^2
+mu    = 47.8 ms     (¿?)
+alpha = 0.05 --> 1.95
+
+¿Mu = 47.8 con intervalo de 1.95?
+
+IC(95%) = [x^_-t_(1-alpha/2)*s/sqrt(n)]
+        = [47.07 - 1.761 * sqrt(2.97)/sqrt(15)]   # sacar con el alfa y y los grados de libertad el t_(...)
+        = [46.1156, 48.0243]                      # Izqd y dcha
+
+---------------------------------------
+EJERCICIO INTERVALO 2
+
+n     = 100 ejecuciones
+x^_   = 778
+s^2   = 193.4
+sigma =                                           # Como no tengo sigma utilizo t, que se aproximará a la normal, haré normal con s, porque n es muy grande, pero no sigma
+alpha = 0.05 --> 1.95
+
+IC(95%) = [x^_-t_(1-alpha/2)*s/sqrt(n)]
+        = [778 - 1.96 * sqrt(193.4)/sqrt(100)]   # sacar con el alfa y y los grados de libertad el t_(...)
+        = [46.1156, 48.0243]                       # Izqd y dcha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
