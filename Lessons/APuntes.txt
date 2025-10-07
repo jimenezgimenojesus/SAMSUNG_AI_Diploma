@@ -251,19 +251,41 @@ IC(95%) = [x^_-t_(1-alpha/2)*s/sqrt(n)]
 
 
 
+---------------------------------------
+EJERCICIO CHI-CUADRADO
+
+pblacion = votantes
+muestra = 200vot
+variables:                                # Queremos comparar y ver si son independientes o no
+- rango de edad
+- partido de voto     --------> tabla de frecuencias observadas (O_ij)
+
+H_0 = que sean indeoendeitnes
+H_1 = que no sean independientes
+Alpha = 0.05
+
+E = O_i * O_j / muestra ----> tabla de frecuencias esperadas (E_ij)
+
+`X` = sum(sum(O_ij - E_ij) / E_ij)                       # sumatoria de cada categoría (2 sumatorios en este caso)
+grado de libertad = (cat_i - 1) * (cat_2 - 1)            # Obtener los grados de libertad con las categorías         
+
+REAHCZAR = NO ESTAR EN EL ALPHA (EN EL INTERVALO DE CONFIANZA)
 
 
 
 
 
 
+----------------------------
+03/10/25
+----------------------
+ARBOLES DE DECISIÓN: decidir de entre todas las variables, la primera y a partir de esas las demás en importancia.
 
+ENTROPÑIA: Homogeneidad entre los datos (con logaritmos para aproximar, con given formula)
+con la misma diferencia, pero mñas datos hay mas homgeneidad.
 
-
-
-
-
-
+GANANCIA INFORMACION: ENTROPIA - sum()   ->< elegir nodo primero según amyor ganancia
+ELEGIR el siguiente nodo dentro de los nodos del primero viendo como les afecta el resto de variables.
 
 
 
