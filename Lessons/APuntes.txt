@@ -288,6 +288,64 @@ GANANCIA INFORMACION: ENTROPIA - sum()   ->< elegir nodo primero según amyor ga
 ELEGIR el siguiente nodo dentro de los nodos del primero viendo como les afecta el resto de variables.
 
 
+----------------------------------
+13/10/25
+Aplicación the Supervised Model Classification
+----------------------------------
+Regresión: de variables ¿?, se predice categorías
+Clasificación: de variables descriptivas, se predice categorías
+
+LA MAYORÍA SON EJEMPLOS DE CLASIFICACIÓN
+
+Modelos eneseñados: son los REPRESENTANTES DE LAS FAMÍLIAS: DISTANCIAS, PROBABILIDAD (Bayes es POBRE), REGRESIÓN LOGÍSTICA, ÁRBOLES DE DEICISIÓN, REDES NEURONALES ARTIFICIALES (MÁS ADELANTE, 1 NEURONA, MULTIPLES NEURONEAS, CAPAS INTERNAS, ...), MÁQUINA DE VECTOR DE SOPORTE, estado del arte ------> para datos tabulares: RANDOM FOREST Y XBOOST (son ensamble: conjunto de modelos)
+
+- REGRESIÓN LINEAL: 
+- REGRESIÓN LOGÍSTICA: 
+- EJERCICIO: solver en LLinear REgression object, depende de los datos
+            ajustar
+               predice (devuelve las clases)
+		confusion matrix --> HARD WAY (manually select from matrix)
+                                 |-> EASY WAY
+	predict_proba(devuleve vector de pertenencia de clase para cada test)
+	
+	cambia el thresold y calcula otra vez la confusion matrix (lanza runa curva Roth y comprobar el mejor cutoff)
+
+- DECISION TREE: sencillos de entender, robustos para NaN, 
+		ESCOGER EL PRIMER ATRIBUTO EN LOS CONJUNTOS MÁS PUROS (según gananxia, entropía)
+		CRITERIO DE PARADA
+		NODOS HOJA
+		NODO PURO
+		PUEDE HABER ATRIBUTOS IRRELEVANTES
+		SE PUEDE TRANSOFMRAR DE ARBOL DE DECISION A REGLAS
+		SI EL NODO FINAL NO ES NODO PURO (UNA SOLA CLASE), SE PARA POR OTRO CRITERIO (profundidad máxima, por ejemplo, ) -> CLASE MAYORITARIA
+		SCIKIT, NO TRABAJ CON DTOS CATEG´ROCOS: LOS PASA ONE-HOT/ NUMEROS
+		GRÄFICA CON PARALELAS = ARBOL DE DECISION, del cual se podría dibujar el árbol: mira la partición "MÁS GRANDE" y luego las sucesivas más pequeñas.
+		OVERFITTING, A MÁS DEPTH MEJOR PERO NO GENERALIZA BINE PORQU EHEMMEMORIZADO TODO. --> GRID SEAARCH PARA VER LA MEJOR PROFUNDIDAD
+		
+
+- EJERCICIO (TITANIC):
+		DISCRETIZACIÓN DE VARIABLES (edad): DEBE DE SER LÓGICA
+
+- KNN: MODELO lazy (not eager), BASADO EN DISTANCIAS 
+		VOY INCREMENTADNO K (1,2,3,4,...) Y SE VA COMPARANDO CON OTROS MODELOS.
+		+ k = + generalidad y fronteras más rectas (pero con k más baja (1-9), suele dar valores correctos también)
+		 EJEMPLOS MEZCLADOS Y MUY PEGADOS A LA FRONTERA DE DECISIÓN SON MUY MUY DIFÍCIL DE PREDECIR (INSTANT HARNESS, PSICOLGY, ...)
+
+- SVM ALGTH (support vector machine): BUSCA LA MEJOR FRONTERA LINEAL (MEJOR HIPERPLANO, EN MUCHAS DIMENSIONES) CON UN MARGEN MÁXIMO CON VECTORES DE SOPORTE. SI LOS DATOS NO SON SEPARABLES --> KERNEL TRICK. 
+
+EJERCICIO: 
+		HACEMOS DROP DE LAS COLUMNAS PERO LUEGO LAS UTILIZAREMOS PARA MEJORAR EL ACCURACY
+
+
+
+
+
+
+		
+
+
+
+
 
 
 	
