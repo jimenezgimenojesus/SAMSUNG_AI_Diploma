@@ -312,6 +312,7 @@ Modelos eneseñados: son los REPRESENTANTES DE LAS FAMÍLIAS: DISTANCIAS, PROBAB
 
 - DECISION TREE: sencillos de entender, robustos para NaN, 
 		ESCOGER EL PRIMER ATRIBUTO EN LOS CONJUNTOS MÁS PUROS (según gananxia, entropía)
+		¡¡¡¡son muy dependeintes del datatset de entrenamiento!!!!
 		CRITERIO DE PARADA
 		NODOS HOJA
 		NODO PURO
@@ -335,6 +336,58 @@ Modelos eneseñados: son los REPRESENTANTES DE LAS FAMÍLIAS: DISTANCIAS, PROBAB
 
 EJERCICIO: 
 		HACEMOS DROP DE LAS COLUMNAS PERO LUEGO LAS UTILIZAREMOS PARA MEJORAR EL ACCURACY
+
+
+-------------------------------------
+14/10/25
+-------------------------------------
+- ENSEMBLE ALGORITHMS: combinación de algoritmos
+		HISTORIA: Wisdom of the crowds (i.e. mean of everyone's knowledge about cows weight).
+		SINGLE: 1 model
+		VOTING: 
+		BAGGING: random forest (choose number of trees + try to have DIFFERENT TREES (diif information))
+		BOOSTING: XGBoost, next model tries to solve earliers error, same with the following, and so on.
+
+- VOTING: 1 training set, SEVERAL DIFF CLASSIFICATION MODELS at the same time, hard/soft voting (hard: majority votes, soft: average probability class) in the example we can see how 0s have a lot more confidence than to 1s. Soft vote is more recommended. 
+
+BEst models at final Project end up being a voting ensamble ->
+		-> alpha*RF+beta*XGBoost+Thet*LAsso=1
+
+- BAGGING (Bootstrap AGGregatING): they use mostly decisión trees (problema that with the same data, they Will always give the same decisión tree, so we need them to be INDEPENDENT and not to CORRELTATE BETWEEN THEM)  -> DIVERSITY. (ALEATORIEDAD FUNCIONA MEJOR)
+	-> BOOTSTRAP SAMPLING: muestreo con repetición del mismo tamaño que el inciial (algunos elementos están repetidos, para tener el mismo tamaño que el inicial). ESTÁ DEMOSTRADO EMPÍRICAMENTE QUE A MÁS ÁRBOLES, MEJOR RESULTADO.
+	-> recoradmos que son muy dependientes deldataset de entrenamiento, con lo que hay mas varibailidad (los que más se repiten tienen más relevancia --> APRENDIZAJE BASADO EN COSTES)
+	-> FEATURE RANDOMNESS: …
+	-> PERMITE PARALELIZAR MUCHOOOOO (son independientes)
+	-> SON MODELOS QUE GANAN MUCHAS COMPETIICONES
+
+¿¿¿manipular el sampling para buscar algún tipo de diversidad/ aleatoriedad concreta se hace? Este caso no explora todas las posibilidadesdel problema? ???
+
+- BOOSTING: en cascada, van comprobando los errores del anterior.
+	-> Assigns weights to errors in every SEQUNECE (THEY ARE sequential).
+	-> ADA BOOST: increases inaccurately classified data automatically (such us in DT) in each iteration and at the end combines every weight.
+	-> GRADIENT BOOSTING: tries to predict erros (minimize previous model errors). XGBOOSTING: mpstly used, not in scikit-learn, very costly (because of stable/balanced tres with not too deep branches, which are the best, but manipulating them is costly). LIGTHGBM are less costly
+
+
+
+-----------------
+Unsupervised: grouping and RULES
+	-> Grouping: number of groups is hyperparameter (decided from DENDOGRAM)
+- HIERARCHICAL:
+	-> AGG-CLUSTERING: BTM->UP, first iteration: instances are cluster, second: closest ones are cluster-> closest clusters e cluster.
+	-> DIVISIE CLUSTERING: TOP->DOWN
+	-> WE DECIDE WHEN TO "CUT" THE CLUSTER
+	-> DISTANCES: DIFFERENCES OF VECTORS (INTER-CLUSTER DISTANCES), WHO DEPENDE PN THE DISTIRBUTION OF THE DATA (WE CREATE ALL THE DISTANCES AND DECIDE ANNALLYTICALLY)
+
+- NON-HIERARCHICHAL:
+
+
+
+
+
+
+
+
+
 
 
 
