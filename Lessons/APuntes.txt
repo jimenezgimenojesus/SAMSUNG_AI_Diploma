@@ -381,10 +381,22 @@ Unsupervised: grouping and RULES
 - NON-HIERARCHICHAL:
 
 
+--------------------------------------------------
+16/10/25 PROJECTO ML
+--------------------------------------------------
 
-
-
-
+- Overall QUality --> num vs. discrete
+- Change to numerical
+- NA detected as NaN: but for a basement it is not, jsut has no basement. CAREFUL
+- DATA EXPLORATION: important
+- No nº of baths but nº of baths in every floor: créate a new one.
+- ¿? Look for refrences in housing webs, to see what people look for ¿?
+- 80 variables input y 1 output (1500x81)
+- Apply changes to train also to test (81 var at train, 80 at test), if f(x_1) to train, aslo to test. (COLUMNS ESPECIALLY, ROWS ONLY IN TEST)
+- Check Code and Discussions
+- fmartinez
+- Menos variables y más lanzar modelos, muchos
+- Lasso, Ridge, (pues es normal tener overfitting)
 
 
 
