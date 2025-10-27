@@ -1,3 +1,136 @@
+Dim = 2
+
+Cada movimiento de matrices tiene un movimiento en ele plano asiciado y vicecversa.
+Cuando haceos f(vector) = A*vector. Esto es, cualquier función / onivimeinto que hagamos tien euna matriz asociada.
+Por ejemplo:(3 0) * A = (0 3)
+
+Simetría:    (0 1)
+             (1 0)
+Giro de 90º: (0 -1)
+             (1  0)
+Matriz invriante: M * v = lambda * v (domde v es el 'vector propio', lambda es el valor propio) (autovalor o autovector)
+vector proio = son los 'direcciones invariantes'
+lambda contenido en R es 'el multiplo' positov o negativo 
+
+
+FACTORIZACIÓN:
+Si M que es parte E de una M (NxN) de Reales.  tiene n vecotres propios linealmente indeoendientes, se cumple que M = P^-1 * D * P, donde D = matriz diagonal , 
+LOs vectore spropios independientes se pueden obtener como resultado de A-lambda * I = 0 (de sus ecuaciones derivadas).
+Los vectores linealmente independientes s eponen en vertical en P y corresponden con cada lugar de D = v11 está en (1, 1) y corresponde con la columna 1 de P.
+
+M^2000 = costoso.   P^-1 * D * P = D ---> M = P * D * P^-1, con lo que ----> M^2000 = P * D^2000 * P^-1, puesto que poneniendo: P * D * P^-1 * P * D * P * P^-1...., donde P*P^-1 = I
+
+- El procductorio de otdos lo valores de lambda da el determiannte de M.
+- El sumatorio de todos los valores de lambda (suma de los autovalores) corresponde con el sumatorio de los valores de la diagonal de la M inicial. 
+- Si M es simétrica (), todos valores propios (lambda), son números Reales.
+
+Con una matrix M mxn, se puede trabajr con M_Especial = M^t(mxn) * M(nxm), para obtener una matriz cuadrada.
+M(mxm) = (mxn)x(nxm)  -> lambda de 1 a m
+M(nxn) = (nxm)x(mxn)  -> mu de 1 a n
+Una de las matrices tendrá más 0s que la otra.
+
+- En A^t * A === A * A^t tienen  los mimso valores propios en uno qu en otro.
+- Todos los valores propios no nulos son positivos (puesto que se han multiplciado esos valores y por tanto NO PUEDNE SER NEGATIVOS) y se pueden ordenadr de menor a mayor
+Valores singulrares de A = son las raíces cuadradas de todas las lambda (y ESOS son los valores, ya que el restultado de la OPERACION DE A(mxn) * A(nxm) *duplcia* valores. 
+
+Las matrices U y V son (nxn, A * A^t) y (mxm, A*t * A) y multiplican a *E* (sigma), por la dcha e izqda: U * *E* * V. Sigma será una matriz diagonal, la U será una matriz horizontal y V será una matriz vertical, de tal manera que obtendremos un SUMATORIO DEL PRODUCTO DE TODOS LOS VALORES DE sigma * u * v, para tods los valores 'i' por los que se extienda. U y V son ORTOGONALES, puesot que u^-1 = u^t.
+El sumatorio de i a r es sigma_i * u_i * v_i, de todos los valores de i hasta r, proque despueés de R peude haber valroes nulos y por tanto, al haber 0s, nos da igual.
+La mayor ignofmacion de A está en los valroes inciales y va tenidenco a 0.
+S epeude hacer aproxmacioens de lso valoresd el suamorio, para A, por ejemplo los primos i valores, en lugar de TODOS ellos.
+
+
+
+DESCENSO POR GRADIENTE utiliza el ERROR CUADRÁTICO
+
+LA y con gorrito es la aproximacion.
+LO que SE BUSCA: minimizar la distancia del punto a la linea de gradiente (sqrt(distancia de l punto a la y al cuadrado))
+MINIMIZAR LA DISTANCIA ENTRE EL PHUNTO ORIGINAL Y EL APROXIMADO
+
+SE suman todas las diferencias de los puntos (el real y el aprox), elevadas al cuadrado., Esto es:  SE PUEDE APLCIAR SIEMPRE. Con ajuste lineal y no lineal
+
+DERIVADAS: al dereivar respeto a una variable, el resto de variables se toman como constantes (y si están solas, es normal que s evayan)
+Si vamos a derivar f(x, y), respecto de x y luego de y, acada una de las derivadas que s ehagan prmeor son las DERIVADAS PARCIALES
+
+VECTOR GRADIENTE: es el resultado de 'colocar' cada una de las respectivas derivadas parciales en un vector VERTICAL, tal que la primera derivada parcial estará arriba del todo y la ultima derivada aprcial abajo
+
+HACIA DÖNDE DIRIGIR CADA UNA DE LAS ITERACIONES: es una funcion que nos dice, si miras en este punto, HAS DE DIRIGIRTE TANTOS MOVIEMIENTOS HACIA TAL DIRECCION (mas o menos)
+- VECTOR GRADIENTE = direcciñon de máxio decrecimiento de f
+VECTOR GRADIENTE = dirección de máximo crecimienot de f
+
+
+METODO DEL GRADIENTE DESCENDIENTE: coger las medida siniciales que tenemos y restarle ALPHA por el vector gradiente ENTRE el normalizado del gradiente. Con lo que estaríamos restando el gradiente a un tamaño ALPHA que decidimos nosotros.
+Si el valor dado es menor, hay que dirigirse, hacia 'MENOS'. UTILIZA EL ERROR CUADRÁTICO
+PARTIMOS DE UN PUNTO SEMILLA
+
+
+----------------------------------------
+23/09/2025
+SAMUEL
+MODELOS INTERPETABLES: no son black boxes
+- SOBREENTRENADO, si o o y a que porcentaje
+- COMPARAR
+
+Modelos lineales:
+
+ con sumas y prodcutos de constatnes y variabels (y = ax + b es la más concida, fácil)
+Se puede cambiar la x por sqrt de x, x cuadrado, lo que sea RELACIONADO CON LA X.
+EJEMPLO: pOWER LAW Fehner, percepción es exponencial, (paso de la electricidad en el cerpo)
+
+ESRTUDIAR , RESPECTO A LA GRÁFICA DE DATOS QUE S ENOS MUESTRA, CUÁL ES LA ECUACIÑÓN QUE MEJOR SE PLAICARIA, EJEMPLO, SI LOS PUNTOS SUGIEREN UNA LOGARITMICA, QUIZÁ ES MEJOR APLICAR UNA TRANSFORMACIÓN ANTES DE HACER EN EL MODELO. (perfcepcion del brillo es logaritmico, por ejemplo (70% se "ve" casi igualeq ue 100%))
+
+DECIDIR COMO DIVIDR EL DATASET
+Decidir, cuántos y cuáles (cuanto más complejo, más datos, 80 o más%, CON ESTE EJEMPLO, 50% ES BIEN // ALEATORIOOOO, intentar librar sesgos, HACER VARIAS VECES (varios modelos para asegurar que es consistente)) EN ESPACIO MULTIDIMENSIONAL ES MÁS COMPLICADO Y ÒR TANTO SE HACE PARTIICÓN ALEATORIA. 
+
+- DECIDIR LA ECUACION Y CREAR, TANTAS ECUACIONES COMO DATOS TENGO (SISTEMA SOBREDETERMINADO)
+- CONVERSIÓN  A MATRICIAL (COMO EN EL DIBUJO)
+- y_E: datos de entrenamiento
+- y_T: datos de test
+
+Buscaremos el Min(Ax -b), donde Ax es mi modelo y b lo que debe predecir. (MINIMOS CUADRADOS, busca minimizar las distancias entre los dso vectores Ax y b).
+x = (A^T * A)^-1 * A^t * b, tiene solución cuando se utiliza la norma ecuclidea.
+LINEAL = Y = A*X + B  ----> x = (A^T * A)^-1 * A^t * b
+CUADRÁTICA = Y = A*X^2 +B  ----> x = (A^2^T * A^2)^-1 * A^2^t * b
+
+PARA PASAR A FORMA MATRICIAL: tenemos el vector en vertical [[a], [b], [c]] @ [[0.015^2, 0.015, 1],       = [50.5, 50.2, ]
+                                                                               [0.015^2, 0.015, 1], ....] 
+
+
+Error entrenamiento = sum((y - y_e)^2 de la primera componente, segunda, terfcera... ) == (y - y_e)(y - y_e)^t (por la trapsuesta)
+Error validación = y - y_t
+
+PARA HACER INTERPRETABLE EL ERROR CUADRÁTICO, SE DIVIDE ENTRE EL NÚMERO DE DATOS (Mean Squared Error, MSE)
+SE OBTIENNE TODOS LOS ERRORES CUADRÁTICOS DE CADA MODELO
+
+PARA DECIDIR SI HAY SOBREENTRENAMIENTO: comparar el error de entrenamiento con el error de validación. PAsa que el error para el conjunto de entrenamiento es más pequeño para el error de validación (una pequeña diferencia está bien (al finalsobre los datos entrenados hay mejor conocimiento), peor no puede se rmuy grande). 
+COMPARAR: restar (diff absoluta), dividir (diff relativa)
+
+Dividir: cercano a 1, son parecidos. muy cercano a 1,// no es problema, pero es raro //, cercano a 0: SOBREENTRENAMIETNO, por
+
+Si se divide el error de entrenamiento entre el error cuadrado (ambos elevados al cuadrado, por tanto CHI-CUADRADO), es una distirbución de Fischer, SE PUEDE CALCUALAR EN QUE PERCENTIL DE LA DSITRIBUCIÓN ESTÁ!!! SI 55, OK EN EL CENTRO, SI 5 O 95, ESTÁ EN UNE EXTREMO.
+
+
+
+
+FALTA EL ANÁLISIS FINAL
+
+SOBREENTRANDO: CUANDO LA RELACIÓN DE PARÁMETROS RESPECTO A DATOS ES DEMASIADO ALTA (demasiados x^2, etc... para tan pocos datos)
+-----------------------------------------------------
+¿CUÁNDO UNA VARIABLE ES IMPORTANTE?  -> MODELO CON Y SIN VARIABLE, si al 95% de confianza son ..., la variable es importante, si sale un PERCENTIL MEDIO, es que da igaul
+INTUIR VARIABLES:
+- COmbiacion lineal de las variables (sumar y multiplicar las variables por componentes O ENTRE ELLAS..) t = ax + by +cz +wd). Podemos aplicar TRANSOFMRACIONES LINEALES a variables que consideremos y seguirá siendo combinación lineal. Multiplicar xy es un factor no lineal pero en el modelo es lineal todavía.
+- en c = a*p +b*h +c: para saber que variable es mas improtante hay que NORMALIZAR. (dos técnicsas)(1, restar dividri máximo tiene valores de 0 a 1, PERO muy sensible a errores, pues todo se centra en max o minimo, SI ES OUTLIER O ESTÁ MEDIDO MAL, PROBLEM) (2, rstar y divividr en std, valores CENTRADOS, más robusto,, "z-score normalization", entre -1, 1 el 60, ... bastabte centrado, AUNQUE NO HAY LIMITES DE VALORES, pensda para TRANSOFMRAR UNA MEDIA DE NORMAL A .. ---> SI LOS DATOS NO TIENEN DISTRIBUCIÓN NORMAL...)
+
+SISTEMA DE ECUACIONES SOBREDETERMINADO CON FORMA MATRICIAL (Ax = b) ---- > [val1, val2] [a b c] = [temp] (EN COLUMNAS)
+
+- Como la presión es muy baja: O LA RELACION ENTRE PRESION Y HUMEDAD NO ES LINEAL o LA RPESION NO ES IMPORTANTE
+# Si sale cerca del 50%, son similares
+# Si sale muy alto o muy bajo, HAY diferenciar significativas entre los modelos (2.5-97.5)
+
+MODELOS DINÁMICOS:
+Utilizar datos del pasado para predecri los del futuro
+
+
+
 ---------------------------------------------------------------------
 29/09/2025 Maria
 --------------------------------------------------
