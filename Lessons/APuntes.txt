@@ -267,6 +267,90 @@ Unsupervised: grouping and RULES
 
 
 
+-------------------------------------------------
+28/10/25
+-------------------------------------------------
+NLP: Comunicación Hombre-Máquina a través del Lenguaje. 
+Lingüística (normas), Lingüística Computacional (intenta aplicar normas, sistemas interpretan reglas)
+Part-of-speech: asignar categoría a cada palabra (ej: banco es un sustantivo), tarea sencilla con 97% d eprestaciones, pág 8 intro.
+Niveles de análisis:
+Problema de la ambigüedad: 
+
+regex101.com
+
+
+-------------------------------------------------
+03/11/25
+-------------------------------------------------
+Integer encoding: para SIMPLIFICAR EL TEXTO antes de trabajar con él.
+OOV: Out Of Vocabulary (to tf.Tokenizer, has to be explicitely added)
+
+Rpresentation model:
+1º: Pre-processing, deleting stop-words
+2º: Appears -> Frequency -> 
+3º: Document-Term Matriz (DTM) -> Term-Document Matrix (TDM), which have the same content. + BOW
+	Bigger document will favuor certain words frequency with the possibility of them not being as important
+4º: Normalize the frequency of the Word (we divide by the length of the document)-> IDF
+5ª: TFxIDF Matrix (if we use zeros at IDF it becomes too radical, so we try to avod it).
+
+Embedding: vectorial representation of words.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
