@@ -296,53 +296,197 @@ Rpresentation model:
 Embedding: vectorial representation of words.
 
 
+-------------------------------------------------
+06/11/25 Deep Learning
+-------------------------------------------------
+- Neuron: Input -> Processing -> Output to other neurons (1 billion connexions the avg. brain, GPT-5 1,5 billion).
+- McCoullugh + Pitts: 1, 0, -1: integrate if over a x: output yes. PERCEPTRON
+- Rosenblatt: values are real and if over x, send signal.
+- Neuron (Rosneblatt): z = sum(w_i * input_i) (1st part), 2nd part: umbral con 0-1 output  ---> it's a regression, but this nueron is limiteed to goign though axis, bc has no independent term. If we add it -> we get all possible lines, REPRESENTED by adding an input with fixed vlaued of 1 * coefficient, resulting in: sum(w_i * input_i) + b. 
+   NEURON OUTPUT HAS SUM AND CONDITION (activation function).
+- Misky Paperrt: proved is too simple and cannot even solve XOR function (we cannot draw a line that seprates 0,0 and 1,1, from 0,1 and 1,0 if you view them as points on a plane, pag 17), 1st: "WINTER", as no one was interested -> Minsky proposed a several layer but difficult to calculate weigths.
+- PERCEPTRON has 2 capas: Inputs and output (neuron), x_0  is for independent term equlled to 0.
+  - For every input we calculate a Z_i and make it to 0 or 1 if positive or negative (ex: z = w_1*x_1 + w_2*x_2 + b) X_0 IS ALWASY 1 (b, independetn term).
+- How to calculate weights fir what we want as a result.
+
+- Improvemetns after multilayer and backpropagation techniques, but PROBLEM OF WEIGHT CALCULATION.
+- P. Werbos: proved that given an error, we can calculate a goal function thorugh cprrection of those weights BACKPROPAGATION. (We don't know f(x) but we know a f^^(x) so we start with that and we start to "fit it" to our goal function through error correction BACKPROPAGATION).
+- Rumelhart proposed applicaion of backpropagation to multilayer perceptron,
+
+- 1st layer "TRANSFORM THE POINTS" nad the second neuron applies the "cut" regression. (such as modifying the plane to "find a plane transformation" and then actually make the regression to that).
+  - A HIDDEN LAYER must be added (over 4 hidden layers it's called DEEP LEARNING, overfitting and vanishing, same problems as 50-60 layers).
+  - How many parameters have to be instanced to hidden layer (coefficient): 6 for input, 3 for output.
+
+Exercise:
+N1 = OR  (1 = 0,1/1,0/1,1 /// 0 = 0,0)
+N2 = NAND (1 = 0,0/0,1/1,0 /// 0 = 1,1)
+N3 = AND (combines n1 and n2 to create XOR)
+
+- Backprogatation needs a continuous function (SIGMOID IT IS, NOT THE STEP FUNCTION (threshold function), it is also INTERPRETABLE AS A PROBABILITY FROM 0 to 1).
+
+MLP: INPUT LAYER + n * HIDDEN LAYERS + OUTPUT LAYER
+PARAMETERS FOR A 5 LAYER: ((12 +2) + (16 + 4) + (16 + 4) + (4 +1)) = 
 
 
+Recommended books (each book has a GitHub page with exercises to use):
+- Hands-on Machine Learning with scikit-learn, keras and tensorflow (O'Reilly) BASIC 
+- AI and Machine Learning for Coders, O'Reilly (about Neural Networks) INTERESTIC AND DIVES DEEPER 
+- Building LLMs for Production, O'REILLY, by L.-F. Bouchard (NOT BAD, COULD BE BETTER), 2024
+- Building Applications with AI Agents, O'REILLY (GREAT FRO CREATION AND PRODUCTION, ...), Oct-2025, shows DANGERS of this type of PROGRAMMING.
+- Model Context Protocolo, Mehul Gupta, et.al.., O'REILLY, , (AI AGENT CONNECTS WITH TOOLS TO CONTEXT AND GENERATES OUTPUT, doe snot need to train the model with PowerPoint, Chrome for web-scrapping, ..., DANGER OF VENONOUS FUNCTIONS.), July 2025.
+
+Exercises: (pág 34-37)
+For a 4->3->4->1 neural network, for a x^1_i neural network, we have a [[[Activation_func(w_ijMATRIX * [x_i] + b_i)]]], for the FIRST HIDDEN LAYER. SECOND HIDDEN LAYER, THIRD.
+Activation funciton can change between layers, NOT BETWEEN NEURONS OF THE SAME LAYER.
+At the end we have a value y^^. WE have ERROR = y - y^^ = LOSS FUNCTION. We update weights and make the neuron "learn" and adjust better.
+BACKPROPAGATION: WE HAVE TO "DIVIDE THE ERROR BETWEEN THE COMPONNETS (MULTIPLY BY "LEARNING RATE"), we use DERIVATIVES TO CALCULATE HOW MUCH INCREASES AND DECREASES (problme is that we may find over and underfitting -> view a REAL loss function, with local minimums, ...).
+
+------------- FOR NORMAL NEURAL NETWORKS, NOT DEEP ------------------------
+Hyperparameters: 
+	hiddenlayer number (the more complex, the more layer, but try not to go over 4, so 1,2 or 3... MORE IS RARE),
+	number of neurons per layer (INCREMENT TO ALMOST DOUBLE the number of neurons at the start,
+	first to learn big and then reduce to smaller.),
+	loss_function (Error=),
+	optimization (function to optomize, such us gradient descent or ADAM -> WORKS REALLY GOOD),
+	learning rate (too much may provoque oscillation, too small can make it trapped in a local mínimum -> ANNOYING TO FIND),
+	epoch number (AFTER ALL SAMPLES HAVE PASSED THROUGH LAYER, THAT'S ONE EPOCH, stop at epoch with the best fit, in case it overfittd, or it stops at a certain type, so we stop it --> CHECK THAT IT CONVERGES),
+	batch size (to decide who big is gonna be the backpropagation, but if bathces errors is big, it learns slwoly --> IF MORE OSCILLATIONS BIGGER, IF DOES NOT CONVERGE, REDUCE).
+- Starting number of neurons depends on the classes.
+
+VERY IMPORTANT TO DRAW THE CURVES OF VALIDATION AND TRAINING  (X-AIXIS: EPOCH, Y-AXIS:(MINIMUX, LOSS FUNCTION)): DRAW TRAINING AND VALIDATION.
+   - FROM TOP TO BTM, BOTH TOGETHER: IDEAL SITUATION.
+   - Validation top diversion whilst traiin redueced: reduce nuerons or layer bc it overfitted
+   - If both don't go donw: increment hidden layers or neurons bc it DIDN'T LEANR ENOUGH.
+   - Converge great till a point but then validation diverges: overfitted after X EPOCH, so STOP AT GIVEN EPOCH.
+   - RARE BEHAVIOURS: look like it's not learning and then it learn a lot after X EPOCH.
+
+HYPERPAPRAMETERS TO REDUCE NETWORK "EXPLOSION": (L1, L2 // also BATCHNORMALIZATION), L!: it's th eabs value between the error and the othe it's squared, so we garantee that the network does not get crazy ---> NAN PREDICTION MEANS OUT OF RANGE 
+HYPERPAPRAMETERS: Dropout, when overfitting + ruido...
 
 
+FUNCTIONS: 
+- Threshold is NEVER USED, TOO OLD.
+- SIGMOID: advantages but too "SOFT" (used only on output layer to get PROBABILITY INTERPRETATION), use SOFTMAX TO calculates SIGMOID AND NORMALIZES SO SUM OF ALL OUTPUTS IS 1. NEVER NEVER USE SOFTMAX IN INTERMEDIUM LAYERS NEVER NEVER.
+- TANH: BIGGER CONVERGENCE BUT LESSER INTERPRETATION, not good for classification output.
+- Linear: does nothing, like a NO ACTIVATION FUNCTION. IT'S A REGRESSION, GET'S THE NUMBER, PREDICTS THE NUMBER, ONLY INTERESTING ON OUTPUT LAYER (equations get a lineal combination so matricially is like nothing happened).
+- ReLU: (only positive side of linear or 0), so no lineal combination can happen. GREAT FOR DEEP LEARNING, GOOD RESULTS, WITH EASY CALCULATION, ONLY FOR HIDDEN LAYERS, LEhyReLu, does not truncate to 0, but multiplies negative value with Alpha and receive a value code, NEVER ON OUTPUT, great to NO LOOSE INFORMATION. 
+
+--------------------------------------
+07/11/25
+--------------------------------------
+Deep Learning problems:
+
+a) Signal propagation
+- Propagations: big oscillations and "explosions" -> reduce learning rate:
+- Vanishing (does not learn): takes many epochs to learn and sometimes maybe it does never learn. When "dividing the error between layers, IF WE DON'T GET TO 1ST LAYER, DOES NEVER LEARN. ---> Use activsation function that share error properly (sigmoid has difficulties with that, it is too soft (1sr derivative is too soft), better with a tanh and if it is deepere, use a ReLU)
+b) Initialization:
+- Weight initialization: must be random, cannot be all the same because they all would learn the same. It is demonstrated that following the formula of pag.50., paper (http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) 
+c) Overfitting:
+- Regularization of weights: with L1 and L2., similar to Lasso and Ridge (they try to avoid a too big increase of th error to not overestimate the importance, better use small values).
+- Dropout: exclude nodes to avoid over dependency (they are overtrained).
+- Data augmentation: add noise, create data by transformation (implemented on libs) (use when it doe snot learn, does not generalize well).
+
+DROPOUT: avoid overtraining (in tensorflow game, they are not heavily colored or too much colored) ---> BETTER IF THEY ALL CONTRIBUTE SIMILARY, DO NOT ESPECIALIZE. Dropout randomly disconnects neurons by layer over a batch adn back propagation (only activated neurons).If a neurons whas specialized, it will stop it so other neurons can "catch up". 
+ AFTER TRAINING IS DONE, WHEN DOING REAL PREDICTIONS, ALL NEURONS ARE ACTIVATED, SO DROPOUT ONLY OVER TRAINING PERIOD.
+
+----------------------------------------------------------------
+
+TENSORFLOW: works only over Linux, supervised by Google, works over CUDA- GPU, libraries to .js and Lite allow to work on Google Chrome and mini-computer. TRAINING IN BIG COMPUTERS AND FINAL NETWROK wherever you want.
+KERAS: ...¿?
+
+TENSOR[rank]: scalar[0], vector[1], matrix[2], n-d matrix [3] with info SUCH AS DATATYPE, DIMENSIONS... (np.array-like object), 
+
+----------------------------------------------------------------
+
+For a 28 x 28 pictures: 
+NEURAL NETWORK inout: has to be a vector (given a nxn matrix, trnasform in a n*(n/x)*x). 
+
+Neurons
+Input layer: neruons (784)
+Hidden layer: nuerons (100)
+Output layer: nurons, as many as classes we have (10)
+
+Params:
+Paramas of input-hidden: 78400 + 100
+params of hidden-output: 1000 + 10
+
+-----------------------------------------------------------------
+CPU: parallel and independent
+GPU: parallel and depedendent, all with the same problem, so perfect for neural networks as thye have the same problem over and over (calculations).
+To use GPU in computer yo need CUDA to apply tensorflow (can tell you waht resources are available).
+Specific GPU needs a specific versión of CUDa which nees a specific versión of Tensorflow that HAS TO RUN OVER LINUX. 
+WLS: we can install a Linux over it.
+-----------------------------------------------------------------
+- Autocorrelations are problematic for neural netqork models, so try not to have the correlation of one hot same as the number of clases (for a 3 class, instead of 3, have n -1 = 2), until the end output has to be 3 classes (as many positions in vector as classes).
+- Change of datatype can fuck upo the neural network, so beware of it and use casting functions.
+- It is interesting to create randomized normal distirbutions for Generative Neural Networks ¿?¿?¿?
+- With image processing, sometimes you have to remove voided dimesnsions, such as the 1st dimenisons. as shown in th eexample (REDUCES DIMENISONALITY)
+
+----------------------------------------------
+
+-------------------------------------------------------------------
+10/11/25
+-------------------------------------------------------------------
+- Keras: library for better construction of NN.
+- Keras exercise 1: logistic regression, with gradiente descent and Mean Square Error
+
+- Best to use a NN that already exists (as some work better than others, so easier to get an old one adn refine it rather than creating one from zero)
+- Always do TEST, but better: train -> validation -> test
+
+- Keras exercise 2: make another NN but using the sigmoid function as activation function. Error would be the different of the neuron and compared to the Y, they are PROBAILITIES, as the sigmoid funciton returns a number from 0 to 1 that IS a probability.
+		- As it is a classification and no regression , loss fucnction can only be binary_crossentropy or crossentropy
+		- For a classification, better to add another paramtere metrics.
+
+Errors formulas, pág. 115:
+- MSE -> better for bigger errors than MAE (which could bring more stability). No predictions are decisive
+- BCE -> 2 clases -> CCE, several clases.
+Parameters and funcitons: (pág 116) -> check (spares_Categorical_Entropy and Multi-Class Classification PRoblems, beware of categorical one-hot encoding, must be done with 1st instruction, 2nd does it automatically, BEWARE of data leakage.)
+
+Backpropagation: steps on the mountain towars a valley metaphor.
+BAtches: to prevent that outliers fuck up and make the NN unlearn, we define batches, so let's say we make a subset of epochs. For 10 epochs, 100 bacthces, calculate several errors, maks the average and then we clacualte verything and apply it with functions, so backpropagation does not fuck up. It is expensive computationally, makes noise and outliers dissolve in th ebig chucnk of study,. When using GPU, passing from MP to GPU it is faster to send seveeral sets to GPU at the same time, EVEN BETTER TO send a BATCH, and whilst it is working, be preparing the following one. BAtch managing can make the NN improve better than the funciton sometimes, so it is VERY IMPORTANT.
+AFTER TRAIN TEST THE MODEL, ALWAYS!!! + LEARNING CURVE COMPARING TRAIN AND VALIDATION PER EPOCHS (THEN DO THE TEST).
 
 
+Error propagation functions (optimizar parameters, pág. 122):
+- Gradient descent: local min problematic, 
+- Momentum: jump but also length of the step (wioch depends on the previous step)
+- Nesterov Momentum: similar, but if next jump is positive (movement on the Good way, but if negativ, reduce as proven that it is not the Good direction, so freezes that parameter). Recalculates jump over previous jumps if oscillations detected.
+- Adagrad: decide a step and reduces it over time (the more updated whas the gradient, the smaller the step)
+- RMSProp: similar to Adagrad, but only takes some epochs, not all the historic like adagrad (similar to how the spiral tensorflow playground evolved, slow, then fast, then slow again, the fast,... won't be posible with a normal adagrad).
+- Adam:  best propoerties of Momentum and RMSProp
+- RMSProp and Adam are the most used by proffessor.
 
 
+- Keras exercise 3 (NN that checks if student passes or fails):
+	- 1 neuron as input
+	- 4 neurons as hidden layer
+	- 1 neyrons as output
+	Parameters are: (1*4 + 1*4) + (4*1 + 1) = 13 (conexiones + sesgos de neurona (extra parameter per neuron))
+
+--> (Bonus): Piramidal layer structure: neurons can receive more info and then summarize (so better to start with a lot and the reduce). With convonutional you can see live: from start only lines, in end you can see faces and from output to inside, you can start to see faces, eyes, etc... (so at the end you need lesser neurons)
+--> 1db: to check evolution of your training online.
+
+TENSORFLOW FUCNTIONS: …
+
+DL DISTRIBUTION: Keras > TensorFLow > CUDA > GPUs         (GPUs same program, CPU, different independent programs)
+                 (APIs)   (FRamework)  (Math)  (HW)
+
+- Keras exercise 4 (NN that checks if student passes or fails):
+	- 1 neuron as input
+	- 4 neurons as hidden layer 1
+	- 4 neurons as hidden layer 2
+	- 1 neuron as output
+	Parameters are: (1*4 + 1*4) + (4*1 + 1) = 13
 
 
+LAYERS to CREATE: pág 144
+	- Convd1: sound, text
+	- Convd2: images
+	- Dorpotut: prevent oscillations
+	- FLatten: don't learn
+	...
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Common DATABASES: … pág 145
 
 
 
