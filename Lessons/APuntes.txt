@@ -489,6 +489,77 @@ LAYERS to CREATE: pág 144
 Common DATABASES: … pág 145
 
 
+--------------------------------------------------------------
+13/11/2025 CNN
+--------------------------------------------------------------
+Classification with CNN + NN
+- Input data
+- Feature extraction WITH CNN
+- Classification with a normal NN
+- Output
+
+
+- Channels must be added and images need to be normalized (NN behave better with normalized samples).
+- Usage of categorical_crossemtropy (need to do One-hot encoding) if using Sparse_categorical_crossentropy, NO NEED.
+
+- Add Dropour Layers to prevent neurons from SPECIALIZING ON WHATEVER.
+
+WE LAENR A LOT OF DETAILS(CONV2D), THEN WE HAVE TO CHOOSE THE BEST OF THOSE (MAXPOOLING), THEN WE HAVE TO (FLATTEN), THEN WE HAVE TO LEARN WHAT OF THOSE ARE DETAILS THAT NEED TO BE LEARN (DENSE), WE NEED TO DROPUT THE DETAILS THAT ARE NOT IMPORTANT (DROPOUT)
+
+
+EXERCISE 1 (CNN)
+- ·2 kernels, the una imagen, crea 32, y las apila en la dimension finalcada una generada pr un calnal differente), pading='same', es por el problema de los filtros (en el borde de la iamgen, el tr trozo que se sale de la imagen ---> ¿? COn el 'same', haces que aunque se salga del kernel, se tenga el mismo tamaño de imagen: se hace 0, si no es 'same' y es 'valid', se olvida de esos oixeles, por la imagen es más pequeña, por lo que tendrá que dejar caer algunos pixeles para tener una imagen del mismo tamaño): CASI SIEMPRE S EPONE SAME, EXCEPTO APRA LSO CASOS ESPECIFICOS. 
+- Se pone MaxPulling, para reducri lso detalles, pues no necesitas tantos: REDUCE EL TAMAÑO DE LA IMAGEN. From that 2x2 defined dimensión, takes only 1 pixel, so redcues size to half.
+- AFTER A CONV2D WE MAKE MOST OF THE TIMES A MAXPOOLING TO GRAB THE DETAILS THAT WE WANT
+- After this: we want to FLATTER, make it a 1d vector: converts to input neurons, so it reduces the dimensions
+- WE have to use DRopout to prevent overfitting, BECASUE TO MANY PARAMETERS MAKES MORE COMPLCIATED FUNCTIONS THAT OVERFITT THE MODELS
+
+
+
+RECURRENT NEURAL NETWORKS:
+- Inputs + Outputs to itself and to other neurons of the SAME LAYER. They have MEMORY (they can represent temporal sequences.).
+- Sequence-in and Sequence-out representation: development through time. Through time we have output every time but we are interested in th elast output.
+- Encoder: has inputs and evolves through time (we ignore output).
+- Decoder: we have no input, just output.
+- BACKPROPAGATION: only to the ITERATIONS THST WE WANT. WE prograte backwars to previous iteration, update paramterters, then we update again, them we update paramters and so and so.
+- FORGWTTIN PROBLEM: first wprds in backproagation are ok, but th emore backwards we go the more it "forgets".
+- LSTM: Long Short Term Memory: saves in another channel memory for the long time 
+- Beacus eof the characteristics of these NN, after 2 layers they can already be thougth  as DL, because the NUMBER OF PARAMETERS GROWS EXPONENTIALLY.
+
+EXERCISE 1 (notes):
+	- Scaling reshape: Batch number, samples and atributtes (price of shampoo in this example)
+	- Attention to resumen:fit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
