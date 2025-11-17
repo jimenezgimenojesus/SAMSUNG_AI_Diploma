@@ -544,16 +544,45 @@ WANDB: 	- login()
 	- BEWARE of FINISHING THE CONNECTION with Wandb
 	- BEWARE OF NOT OVERWRITTING THE SAVED MODEL
 	- Saved model can be the last one, previous to last, … (modify ModelCheckpoint())
-	- All parameters defined in th eproject areimportatnn so that OTHER PEOPLE CAN REPRODUCE THE EXPERIMENT INDEPENDENTLY	
+	- All METADATA defined in th eproject areimportatnn so that OTHER PEOPLE CAN REPRODUCE THE EXPERIMENT INDEPENDENTLY. Also, such as GitHub, even if you lose the model, if most of th einfo is defined there, it could be easily reproduceable next time.	
 
 ¡¡¡¡ Every time, OPEN, CHANGE NAME OF EXPERIMENT and CLOSE !!!!
 
 
 TENSORBOARD: 
-similar but inside the FILE STRUCTURE OF COLAB
+similar but inside COLAB's FILE STRUCTURE. 
 
+-----------------------------------------------------------
+CNN:
+	- Yann LeCun's proposal (1990), not good computing power yet.
+	- AlexNet: application of GPU to NN
+	- CNN since 2014 have been the strongest 
+	- Imitation of primate brain focus (separated and overlapped focus)
 
+- BETTER USED KNOWN STRUCTURES THAT ALREADY WORK FOR A CNN (look in HugginFace for example to see the best structures).
+- Convolution filter: the productorio of all weights and pixels of a región so that we obtain a pixel with the value of around pixels and also overlapped. Given by the function: O(,) = sum(sum(K(x, y)*I(i+x, j+y))) which is applied around the image. WE can process q pixel per image entry (so the calculation Surface moves 1 pixel) or several. If we do a desplacement of 2, the resulting image is half the size (normally we don't do that, just small steps). 
+- Padding: with a 1 step displacement, when we get to the border pixels, kernel is put of th image. If they are not processed, resulting image is smaller ('valid'), the other option is padding with zeroes ('same').
+- WE can draw a kernel to "look for" certain shapes: in the places where the shapes match, the resulting number is bigger ("brighter"). IF we apply a threshold, we can get back only the shapes wanted. WE can detect structures, shapes, frecuencies and SPATIAL KNOWLEDGE (position in image) ... THE CNN learns what is the best kernel to find the characteristics you want. (SO THEY LEARN CHARACTERISTICS).
+YOLO: object detection thourh learn characteristics through CNN
+- KERNEL SIZE: normally 3x3, up to 7x7, too big means too GENERAL. Can be squared or not and have a n=even or odd, but odd from a coneceptual POV is better.
 
+IN A TOTALLY CONNECTED (NN) OF 28X28 IMAGE, PARAMS ARE 28X28=784+1= 785 PARAMETERS. IN CNN, INPUT IS (28,28) --> for a 3x3 kernel -->9+1=10. SMALL PARAMETERS, BUT STILL APPLICATION OF KERNEL TO ALL PARAMETERS.
+
+- When looking at a CNN draqwed, inputs and outputs are drawn, but not all the neurons. A 3D box is usaully drawn, saying Conv(nxn)x1024, weach means it has created 1024 images from a 5x5 kernel. If several layers, a depth is added to the maximum layer needed (THIRD DIMENSION IS NOT MENTIONED BUT IS THERE), so a mxnx3 image will have a 3rd dimension on the resulting images.
+- Kernel number (1024 previously): always given but a multiple of 2, because of computer management.
+
+Given that imprirically:
+- 1st layers: learn details (feature extraction): (Convol. + pooling)*n
+- Lasts layers: learn generalizations (classification): (Dropout layer + fully connected layer)
+So: PYRAMIDAL SHAPE:
+- DEtails first: so we learn a lot from all this things
+- Generalization layers: when I have many learnt and with good knowledge things I can reduce the images (MAXPOOLING)
+AS YOU DON'T KNOE WHAT IS THAT THE KERNEL WILL BE FOCUSED ON: THE MORE THE KERNELS, THE MORE IT WILL LEARN, THAT IS WHY THERE ARE SOM MANY LAYERS, BUT TOO MANY WILL OVERFIT, that is why PREDETERMINED STRUCTURES, AS SAID EARLIER, WORK REALLY WELL!!!
+
+MaxPooling and AVgPooling: let you FOCUS ON THE DETAILS, so that we can DROP useless info. THWY DON'T LEARN. They take a block, choose the highest value and drops the rest, so in a 2x2, we drop it half the image. AVG: does the mean, rather than just the maximun. BUT MAXIUM IS THE MOST USED, BECAUSE THE MAXIMUMS ARE MORE IMPORTANT THAN THE AVERAGE, BECAUSE THE MEAN DILUTES THIS "DETAILS".
+
+Example to manually calculate: pág 38 (no padding -> smaller img), 39 (0-padding).
+- Images usually replicate images on the padding instead of zeroes, because of grey colors, which creaet frecuency noise (big changes on grey generate big frecuency changes).
 
 
 
