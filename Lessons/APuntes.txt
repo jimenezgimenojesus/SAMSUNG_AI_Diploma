@@ -531,21 +531,26 @@ EXERCISE 1 (notes):
 	- Attention to resumen:fit()
 
 
+---------------------------------------------------------
+17/11/2025 WANDB
+---------------------------------------------------------
+Experiment tracking: is whatever training used to find which one is the best model to use (an experiment is whenever you change parameters of the model, but don't chnage hte code): ---> control htrough "wandb" (GitHub looking with dashboards, online tracking, saving models while training, watch model though training when not at home (remote tracking)), "TensorBoard".  
+
+WANDB: 	- login()
+	- init(project, name, config)
+	- It is recommended that the filename gets a value in th name, so that you have some info in the name
+	- To extract config values: assign to a variable.
+	- Use a callback var to sabe the best model
+	- BEWARE of FINISHING THE CONNECTION with Wandb
+	- BEWARE OF NOT OVERWRITTING THE SAVED MODEL
+	- Saved model can be the last one, previous to last, … (modify ModelCheckpoint())
+	- All parameters defined in th eproject areimportatnn so that OTHER PEOPLE CAN REPRODUCE THE EXPERIMENT INDEPENDENTLY	
+
+¡¡¡¡ Every time, OPEN, CHANGE NAME OF EXPERIMENT and CLOSE !!!!
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+TENSORBOARD: 
+similar but inside the FILE STRUCTURE OF COLAB
 
 
 
