@@ -297,7 +297,7 @@ Embedding: vectorial representation of words.
 
 
 -------------------------------------------------
-06/11/25 Deep Learning
+06/11/25 Deep Learning: Carlos Monserrat
 -------------------------------------------------
 - Neuron: Input -> Processing -> Output to other neurons (1 billion connexions the avg. brain, GPT-5 1,5 billion).
 - McCoullugh + Pitts: 1, 0, -1: integrate if over a x: output yes. PERCEPTRON
@@ -585,15 +585,122 @@ Example to manually calculate: pág 38 (no padding -> smaller img), 39 (0-paddin
 - Images usually replicate images on the padding instead of zeroes, because of grey colors, which creaet frecuency noise (big changes on grey generate big frecuency changes).
 
 
+------------------------------------------------
+10/11/2025
+------------------------------------------------
+
+Every Kernel Works like as a neuron, so aprameters are calculated as nxnxn. [(width x height x depth + bias) x neurons] x same_type_layers.
+
+
+- What is the best Depth to work with: depends on image size, things to learn, …
+- Multilayer is recommended to build in 2^x because of computing reasons (from 8 neurons to 16, from 16 to 32).
+
+- Usual tips: use the biggest posible WORKING network to see if it Works in training and then apply rules to prevent overfitting, such as REGULARIZATION (L1 and L2).
+- Professor says that to him it almost never Works to better result, just uses them when network fails (i.e., when all neurons show NaNs).
+- What profesor says better works fo him: learning rate, batching, DROPOUT, neurons and layers, almost never l2.
+- Batch normalization, l1 and l2, only when NETWORK FAILS, that's what has worked with profesor, regarding personal use. Uses more l2 than l1.
+- Also deleting layersand neurons to prevenet overfitting Works.
+
+- Regularization is added in the hidden layers, a big coeffciient makes that there is no "disparo", so 
+network does not learn.
+
+- (Categorical/Binary) cross-entropy: WHAT TO USE? LOGIT (BEFORE APPLYING THE LOSS FUNCTION) or NOT?
+	Logits is more stable than probabilities, so when calculating the loss function they add a calculation that solves the msitakes of the computer, run calculations a bit slower but they provide stability to the network. IN TRAINING, THEY INTERNALLY DON'T EVEN USE THE PROBABILITIES.
+
+
+NETWORK:
+1st layer (Conv):
+	Neurons: 32, kernel of 5x5 and 32 kernels, so 32 neurons.
+	For every kernel, an image
+	Params: 5x5x32 + 32 = 832 parms.
+
+2nd later (Pooling): of 2x2, so reduces images to half size.
+
+3rd layer (Conv):
+	Neurons: 64, kernel of 5x5x32 (BC IT RUNS THROUGH ALL INPUT IMAGES) and 64 kernels.
+	Params: 5x5x32x64 + 64 = 51_264
+
+4th layer (Pooling): of 2x2 so reduces image's size to half. 
+
+5th layer (Flatten): converts to flat neurons, a straight line
+	Neurons: 7x7x64 = 3136 neurons.
+
+6th layer (Normal NN):
+	Params: 3164x1024 + 1024 = 3_212_288
+
+7th layer (Normal NN): 
+	Params: 1024x10 + 10 = 10250
+
+
+- RNN: prediction is based not just input but also previous input!!!
+
+RNN layer: 7 inputs for 3 RNeurons
+
+weights = (7 + 3) * 3 + 3 = 33
+
+Problems that RNN have: that when correctign th weights, they all deopend from the previous one and expanfing backwards which produces a diluting effect on previous predictions (LATEST PREDICTIONS HAVE MUCH MORE WEIGTH OVER EARLIEST PREDICTIONS WHICH END UP VANISHING (totally after 10-15 neuron)).
+
+LSTM (Long-Short Term Memory): in pág. 96 there is a draw which represnet it. Every blue box's output has the number of neurons (all of them the same number), so previous predictions has also size 4. 
+	Y_t-1: short term memory
+	C_t-1: long term memory (important thing), also input of size 4
+	PUERTA DE RECHAZO: Frist big X is the multiplication function that DECIDES WETHER SOMETHING IS IMPORTANT OR NOT.
+	X_t: current prediction
+	PUERTA DE RECUERDO: decides what should be remmbered so it is added to C. Uses a sigmid bc of the 0-1 probability and the tanh bc of the postiive, negaative or 0 values.  
+	Last sigma: combines itself With the lomng term memory (actually, the long term memory gets tanh_ed? and then combined to the current predcition and giving the Y_t as current output and C_t as memory)
+	NEURONS ARE ONLY ON THE BLUE DOORS.
+	
+	C_t would GO BACK TO C_T-1 and Y_t to Y_t-1.
+	For a RNeuron with 5 values at X_t, we would have as parameters:
+		X_t: 5
+		Y_t-1: 4
+		Inputs: (5 + 4)x4 + 1*                            *(NEURONS SHARE THE BIAS, SO ONLY 1 ACTUALLY)
+		4 DOORS: [(5 + 4)x4 + 1*]x4
 
 
 
+-----------------------------------------------------------
+20/11/2025: RNN
+-----------------------------------------------------------
+Tomorrow:
+- API key Mistral (free)
+- API key Chatgpt (free for x tokens)
+
+Yu can find networks on:
+- keras.io/api/applications
 
 
+Making a RNN that "speaks like shakespeare".
+	- Input layer: size 39 (one letter)
+	- GRU layer: 128 neurons
+	- GRU layer: again 128 neurons 
+	- Dense layer: you can choose wether or not the Dense receives information until the RECURRENCY IS DONE. If set to false, does not send info, if TRUE, send info everytime, every recursión. We would use the False if we wanted to classify a text, i.e., where we don't need instant result, but a final result.
 
 
+----------------------------------------------------------
+21/11/2025: Generative Adversarial Network (GAN)
+----------------------------------------------------------
 
+ID organización Mistral:
+358d7b40-647e-4764-a722-ac3a62181259
+API Key:
+FwppSWxoFXbkwro9Wg1JCzGVxnK4uxJj
 
+BASE OF THEM IS AUTOENCODER
+
+GAN: créate something from an unidentified input. From pág 111, encoder gets all the faces, decoder gets a seed number and we get all this AI generated faced (from an input-value).
+
+As I do not know hte distribution of values, if I input a vector that is not INSIDE THE LATENT SPACE, not in the distirbution wanted, Will NOT GENERATE ANYTHING INTERESTING. We must transform it into a normal distribution, for example.
+
+- Variational Auto-Encoder (VAE): this variation of autoencoder forces the input (X^_) to be "normalized". For every class, we Will have an avergae, and standard deviation from every class and add it to a database, so that we can generate a value inside that DISTRIBUTION.
+- Interpolation of two values: taking an avocado and a sofa, generated from a random vector inside dsitribution, with INTERPOLATION, Will generate a sofa with avocado shape, for example.
+
+- Generator / Discriminator:
+	- GEnerator: creates an image from a random vector.
+	- Discriminator: from a real image, decides wether it is a real or fake image.
+	NONE CAN BE BETTER THAN THE OTHER, so Generator has to be of similar PERFORMANCE to discriminator, because if it is better, it Will not learn. THe opposite can happen. THA TIS WAY THEY USAULLY HAVE SIMILAR STRUCTURES.
+
+- 1st pase: Discriminator is trained whilst Generator is "frozen", using back propagation to differentiate both images (TRIAN DISCRIMINATOR).
+- 2nd pase: Discriminator is frozen ang Generator learns (TRAIN GEN ERATOR). 
 
 
 
