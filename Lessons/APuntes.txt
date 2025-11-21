@@ -735,7 +735,8 @@ Scheme:
 - IMPROVEMENT: through Fine-Touning (but can be expensive), Self-reflection (instruct the LLM so that it iterates over and over until it gets the best answer, but many tokens), Multi-Asnwer (ask fro 5 questions adn decide the best one).
 
 ---------------------------------------------------
-AGENTS
+AGENTS with OpenAI Langchain
+StreamLit: similar for FREE 
 
 
 
