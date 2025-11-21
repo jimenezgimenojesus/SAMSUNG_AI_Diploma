@@ -702,6 +702,42 @@ As I do not know hte distribution of values, if I input a vector that is not INS
 - 1st pase: Discriminator is trained whilst Generator is "frozen", using back propagation to differentiate both images (TRIAN DISCRIMINATOR).
 - 2nd pase: Discriminator is frozen ang Generator learns (TRAIN GEN ERATOR). 
 
+----------------------------------------------------------------------
+Large Language Models (LLMs):
+
+- Big and mini, the small ones have a similar performance than the bigger ones and can be hsoted locally which is better for data privacy concerns.
+- TRANSFORMER NN: can be Encoder-Only, Encoder-Decoder, Decoder-only (most widly used/created)
+	- Multi-Head Attention: is the REAL CHANGE whose structure has 3 inputs (which doesn't mean they aren't the same values, BUT DIFFERENT WEIGTHS). 
+	- Beware of the weights, ALSO:
+		- 1st conmbination: query (Q, WHAT is more "important", those important elements in a phrase) and key (K, decides which COMBINATIONS are more important, and gives improtance to them) are multiplied.
+		- 2nd: after deciding what is IMPORTANT IN INPUT, we multiply thhose relations with the significance values (V) to decide what to say afterwards.
+	- CONTEXT LENGTH (in tokens, which may be less of a word): is the size of the input and the LIMIT (if it's 4000, when arrives to 4001, MUST FORGET THE FIRST ONE).
+	- Beware that they REMEMBER MORE THE FIRST AND LAST, but very little of the MIDDLE PART.
+
+- Several typical definitions: pág. 157.
+	- Emerging abilities: models do things that are not trained to do, such us answering math questions not trained to do or calling tools, such us using a calculator.
+
+--------------------------------------------------
+Retrieval Augmented Generation (RAG):
+As LLM may hallucinate due to absence or excess of context, a RAG can be scheduled as a sum of LLM + Context + Prompt.
+
+Scheme:
+	1: Prompt + Query
+	2: EMbedding abd look for Context in DataBase
+	3: Generate Prompt + Query + Enhanced Context
+	4: Send to LLM
+	5: Get the text and context (where did it took it from)
+
+- DB: must be CREATED through CHUNKING (same size parts of documents with "overlap"), KNWOLEDGE graphs (relationship between concepts), EMBEDDINGS (can be a simpler model, through this, accesses can be optimized)
+- QUERYNG: if the query is structured the same way that internally is processed (RE-WRITING), it's better. Also can do 5 iterations and retireve 5 different answers (RAG-FUSION) so you get the best out of them. BEWARE OF TOKEN USE.
+- SEARCH: semantic manipualtion of the search through, distance metrics, noise reduction... through focalization. GRAPH-RAG. 
+- PROMPTING: gives the LLM tools so that it can use them and provide you with better anwers. JSON file structure works really well.
+- IMPROVEMENT: through Fine-Touning (but can be expensive), Self-reflection (instruct the LLM so that it iterates over and over until it gets the best answer, but many tokens), Multi-Asnwer (ask fro 5 questions adn decide the best one).
+
+---------------------------------------------------
+AGENTS
+
+
 
 
 
