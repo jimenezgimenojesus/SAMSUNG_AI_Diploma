@@ -1,0 +1,103 @@
+- Define QUESTIONS, PROBLEMS.
+- Problems (Known, Unknown // How to do it? What do do?): Optimization, Insight, Solution, Discovery.
+- BEWARE OF TIME: arrive FIRST.
+- DATA AVAILABLE: VOLUME, FORMAT (structured?, preprocessed?, web scrapping?).
+
+- Explore:
+	Causes and preexistent solutions
+	Identify EARLY PROBLEMS (such us data)
+	Management and updates
+
+- See if we can acces UNIVERSITY CLUSTERS (if needed).
+- CRISP-DM: data mining for project planification.
+
+- Must start with a prototype early and then modify again and again (also modifying expectations).
+
+Key Elements:
+- People-centered: empathy, get info and emotionally what to expect, like, dislike...
+- Higly creative: think out of the box...
+- Hands-on: trial and error.
+- Iterative: "Understand > Create > Learn" x CYCLE ITERATION.
+
+- Discover:data research, observation research, interview.
+
+- GET EARLY FEEDBACK FROM POTENTIAL USERS (testing in real scenario to improve)
+
+Propuesta:
+- Que no exista, que no se haga otro proyecto igual
+- Que un LLM no lo pueda hacer por la cara
+- Si cumple: coger un Modelo de HuggingFace multimodal, que a partir de texto tenga como output texto e imágenes, que sea pequeño para que quepa en la memoria de Colab y hacer Finetuning (intentar no hacer "In Context Learning")
+
+-------------------------------------------------------------------------------------
+Proyecto Comité Paralímpico:
+-------------------------------------------------------------------------------------
+- Coger base de datos, simular sus resultados de pruebas (modelo de clasificación de deportes)
+- Vector de probabilidades para asignar los deportes recomendados de mayor a menor según las características
+- Tener en cuenta las reglas casuísticas (como por ejemplo: si NO es invidente, no se recomienda fútbol)
+	cribado inicial de, según la discapacidad, que deportes se quedan fuera directamente. Sería pasar directamente una matriz de 1: para los deportes y 	enfermedad son posibles y 0s para los que no son posibles.
+- Lista de lo que necesitamos de ellos, para que el excel se procese mejor
+- EXTRA: buscar las enfermedades prevalentes en cada categoría y determinar si las oersonas con X enfermedad tienden a ser buenas en su categoría
+- EXTRA: que haya clubes de determinados deportes con experiencia, años de antigüedad, etc que puedan recomendarse
+- EXTRA: que los profesionales hagan los test para tener referencias de los buenos (opcional, extra, más adelante)
+
+Cosas a hacer:
+- Pedir todos los datos que se puedan, en exceso incluso, preguntas abiertas...
+- El otro grupo quiere hacer un seguimiento de predicción de SUCCESS en una fecha, un año después, 3 años después...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
